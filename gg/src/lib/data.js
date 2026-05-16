@@ -7,3 +7,8 @@ export const userIdData = async(id) => {
     const res = await fetch(`${process.env.SERVER_URL}/courses/${id}`)
     return res.json()
 }
+
+export const featureData = async () => {
+    const res = await fetch(`${process.env.SERVER_URL}/feature`)
+    return res.json()
+}

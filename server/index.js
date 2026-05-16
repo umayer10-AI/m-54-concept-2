@@ -31,6 +31,11 @@ const run = async () => {
             res.send(result)
         })
 
+        app.get('/feature', async (req,res) => {
+            const result = await userCollection.find().limit(4).toArray()
+            res.send(result)
+        })
+
         app.get('/courses/:id', async (req,res) => {
             const {id} = req.params
             const query= {
