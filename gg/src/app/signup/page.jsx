@@ -1,7 +1,16 @@
+"use client"
 import Link from 'next/link';
 import React from 'react';
+import { useForm } from 'react-hook-form';
 
 const SignUpCard = () => {
+
+    const {register,handleSubmit,formState: { errors },} = useForm()
+
+    const a = async(v) => {
+        console.log(v)
+    }
+
     return (
         <div className=" bg-slate-100 flex items-center justify-center py-10">
             {/* Main Sign Up Card */}
@@ -21,13 +30,14 @@ const SignUpCard = () => {
 
 
                 {/* Sign Up Form */}
-                <form className="space-y-5">
+                <form onSubmit={handleSubmit(a)} className="space-y-5">
                     {/* Full Name Input */}
                     <div className="space-y-1.5">
                         <label className="text-slate-800 font-bold text-sm">
                             Full Name
                         </label>
                         <input
+                            {...register("name", { required: true })}
                             type="text"
                             placeholder="Enter your full name"
                             className="w-full bg-white border border-slate-200 rounded-2xl px-4 py-3.5 text-slate-700 placeholder-slate-400 text-sm outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-50 transition-all duration-200"
@@ -40,6 +50,7 @@ const SignUpCard = () => {
                             Email Address
                         </label>
                         <input
+                        {...register("email", { required: true })}
                             type="email"
                             placeholder="Enter your email"
                             className="w-full bg-white border border-slate-200 rounded-2xl px-4 py-3.5 text-slate-700 placeholder-slate-400 text-sm outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-50 transition-all duration-200"
@@ -51,7 +62,8 @@ const SignUpCard = () => {
                             Image URL
                         </label>
                         <input
-                            type="email"
+                        {...register("image", { required: true })}
+                            type="url"
                             placeholder="Enter your URL"
                             className="w-full bg-white border border-slate-200 rounded-2xl px-4 py-3.5 text-slate-700 placeholder-slate-400 text-sm outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-50 transition-all duration-200"
                         />
@@ -63,6 +75,7 @@ const SignUpCard = () => {
                             Password
                         </label>
                         <input
+                            {...register("password", { required: true })}
                             type="password"
                             placeholder="........"
                             className="w-full bg-white border border-slate-200 rounded-2xl px-4 py-3.5 text-slate-700 placeholder-slate-400 text-base tracking-widest outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-50 transition-all duration-200"
@@ -72,9 +85,9 @@ const SignUpCard = () => {
                     {/* Sign Up Button */}
                     <button
                         type="submit"
-                        className="w-full bg-[#0084ff] hover:bg-blue-600 text-white font-bold py-4 rounded-2xl shadow-lg shadow-blue-500/20 transition-all duration-200 flex items-center justify-center gap-2 group mt-4"
+                        className="w-full bg-linear-to-r from-cyan-500 to-blue-600 hover:bg-blue-600 text-white font-bold py-4 rounded-2xl shadow-lg shadow-blue-500/20 transition-all duration-200 flex items-center justify-center gap-2 group mt-4"
                     >
-                        <span>Get Started</span>
+                        <span>Register</span>
                         <svg 
                             className="w-4 h-4 group-hover:translate-x-1 transition-transform" 
                             fill="none" 
