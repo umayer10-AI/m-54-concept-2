@@ -7,7 +7,7 @@ const AllCards = ({p}) => {
 
     return (
         <div>
-            <div className="max-w-90 h-full bg-white rounded-[32px] border border-gray-200 shadow-sm overflow-hidden p-4 font-sans">
+            <div className="max-w-90 h-full shadow-sm hover:shadow-2xl hover:shadow-blue-500 hover:-translate-y-2  duration-300 bg-white rounded-[32px] border border-gray-200 overflow-hidden p-4 font-sans">
             {/* Top Image Section */}
             <div className="relative h-60 w-full rounded-[24px] overflow-hidden">
                 <Image width={100} height={100}
