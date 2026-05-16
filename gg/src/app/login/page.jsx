@@ -26,6 +26,12 @@ const LoginCard = () => {
     
         }
 
+        const handleGoogle = async () => {
+            const data = await authClient.signIn.social({
+                provider: "google",
+            });
+        }
+
     return (
         <div className=" bg-slate-100 flex items-center justify-center py-10">
             {/* Main Login Card */}
@@ -42,7 +48,7 @@ const LoginCard = () => {
                 </div>
 
                 {/* Google Sign In Button */}
-                <button className="w-full flex items-center justify-center gap-3 border border-slate-200 hover:bg-slate-50 text-slate-700 font-bold text-sm py-3.5 px-4 rounded-xl transition-colors duration-200 mb-6">
+                <button onClick={handleGoogle} className="w-full flex items-center justify-center gap-3 border border-slate-200 hover:bg-slate-50 text-slate-700 font-bold text-sm py-3.5 px-4 rounded-xl transition-colors duration-200 mb-6">
                     <svg className="w-5 h-5" viewBox="0 0 24 24">
                         <path
                             fill="#EA4335"
