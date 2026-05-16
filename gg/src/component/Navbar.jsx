@@ -6,7 +6,7 @@ import Nav2 from './Nav2';
 
 const Navbar = () => {
     return (
-        <div className='border-b border-b-cyan-300'>
+        <div className='sticky top-0 bg-white/50'>
             <div className='flex justify-between items-center py-3 w-[80%] mx-auto'>
                 <div>
                     <div className='flex items-center gap-1'><h2 className='text-4xl text-blue-500'><FaBookOpen /></h2><span className='text-2xl font-extrabold'>Mentora</span></div>

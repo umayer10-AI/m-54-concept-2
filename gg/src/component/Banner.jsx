@@ -5,7 +5,7 @@ import { FaPlay, FaStar } from 'react-icons/fa';
 
 const Banner = () => {
     return (
-        <div className='min-h-screen bg-[#f4f7fc] px-6 lg:px-16 py-10'>
+        <div className='bg-[#f4f7fc] px-6 lg:px-16 rounded-xl py-10'>
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-14 items-center'>
 
                 {/* Left Side */}
@@ -38,7 +38,7 @@ const Banner = () => {
                     </p>
 
                     {/* Buttons */}
-                    <div className='flex items-center gap-8 mt-10 flex-wrap'>
+                    <div className='flex items-center gap-8 mt-5 flex-wrap'>
 
                         <button className='bg-linear-to-r from-cyan-500 to-blue-600 hover:bg-blue-700 transition text-white px-8 py-4 rounded-full text-lg font-semibold flex items-center gap-3 shadow-lg'>
                             Explore Courses
@@ -66,7 +66,7 @@ const Banner = () => {
                 {/* Right Side */}
                 <div className='relative'>
 
-                    <div className='relative h-[600px] rounded-[40px] overflow-hidden shadow-2xl'>
+                    <div className='relative h-130 rounded-[40px] overflow-hidden shadow-2xl'>
 
                         <Image
                             src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop"
