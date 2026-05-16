@@ -19,7 +19,7 @@ const Nav2 = () => {
                         : <button>Login</button>
                     }
                 </Link>
-                <Link href={'/register'}><Button size='sm' className=' bg-blue-500'>Join Free</Button></Link>
+                <Link href={'/signup'}><Button size='sm' className=' bg-blue-500'>Join Free</Button></Link>
             </div>
         </div>
     );

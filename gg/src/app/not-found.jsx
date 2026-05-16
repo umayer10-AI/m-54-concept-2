@@ -33,7 +33,6 @@ const NotFound = () => {
                     </Link>
 
                     <button
-                        onClick={() => window.history.back()}
                         className="border border-blue-600 text-blue-600 hover:bg-blue-50 transition px-8 py-4 rounded-full font-semibold"
                     >
                         Go Back
