@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowRight, Clock, BookOpen, User } from 'lucide-react';
 import { featureData } from '@/lib/data';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const FeaturedCourses = async () => {
 
@@ -26,18 +27,18 @@ const FeaturedCourses = async () => {
                     </div>
 
                     {/* View All Button */}
-                    <button className="flex items-center justify-center gap-2 border-2 border-slate-900 hover:bg-slate-900 hover:text-white text-slate-900 font-bold px-6 py-3 rounded-full transition-all duration-300 text-sm whitespace-nowrap self-start md:self-auto group">
+                    <Link href={'/courses'} className="flex items-center justify-center gap-2 border-2 border-slate-900 hover:bg-slate-900 hover:text-white text-slate-900 font-bold px-6 py-3 rounded-full transition-all duration-300 text-sm whitespace-nowrap self-start md:self-auto group">
                         View All Courses
                         <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                    </button>
+                    </Link>
                 </div>
 
                 {/* Courses Grid Layout */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     {courses.map((course) => (
-                        <div 
+                        <Link href={`/courses/${course._id}`} 
                             key={course._id} 
-                            className="bg-white rounded-[24px] border border-slate-200/60 shadow-sm overflow-hidden p-3.5 flex flex-col justify-between hover:shadow-md transition-shadow duration-300"
+                            className="bg-white rounded-[24px] border group border-slate-200/60 shadow-sm overflow-hidden p-3.5 flex flex-col justify-between hover:shadow-xl hover:-translate-y-2 duration-300"
                         >
                             {/* Image Section */}
                             <div>
@@ -46,7 +47,7 @@ const FeaturedCourses = async () => {
                                         src={course.thumbnail} 
                                         alt={course.title} 
                                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                        className="w-full h-full object-cover"
+                                        className="w-full h-full object-cover group-hover:scale-110 duration-500"
                                     />
                                     {/* Category Badge */}
                                     <span className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-slate-800 text-[10px] font-bold px-2.5 py-1 rounded-full shadow-sm uppercase tracking-wider">
@@ -74,7 +75,7 @@ const FeaturedCourses = async () => {
                                     ${course.price}
                                 </span>
                             </div>
-                        </div>
+                        </Link>
                     ))}
                 </div>
 

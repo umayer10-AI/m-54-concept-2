@@ -41,7 +41,7 @@ const run = async () => {
             const query= {
                 _id: new ObjectId(id)
             }
-            const result = await userCollection.findOne()
+            const result = await userCollection.findOne(query)
             res.send(result)
         })
 
