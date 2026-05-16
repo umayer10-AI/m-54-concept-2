@@ -1,4 +1,5 @@
 "use client"
+import { authClient } from '@/lib/auth-client';
 import Link from 'next/link';
 import React from 'react';
 import { useForm } from 'react-hook-form';
@@ -9,6 +10,22 @@ const SignUpCard = () => {
 
     const a = async(v) => {
         console.log(v)
+
+        const { data, error } = await authClient.signUp.email({
+            name: v.name,
+            email: v.email,
+            password: v.password,
+            image: v.image,
+            callbackURL: "/",
+        });
+
+        if(data){
+            alert("Data Successfully")
+        }
+        if(error){
+            alert(error.message)
+        }
+
     }
 
     return (

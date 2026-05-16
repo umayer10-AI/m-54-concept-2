@@ -1,7 +1,31 @@
+"use client"
 import Link from 'next/link';
 import React from 'react';
 
 const LoginCard = () => {
+
+    const {register,handleSubmit,formState: { errors },} = useForm()
+    
+        const a = async(v) => {
+            console.log(v)
+    
+            const { data, error } = await authClient.signUp.email({
+                name: v.name,
+                email: v.email,
+                password: v.password,
+                image: v.image,
+                callbackURL: "/",
+            });
+    
+            if(data){
+                alert("Data Successfully")
+            }
+            if(error){
+                alert(error.message)
+            }
+    
+        }
+
     return (
         <div className=" bg-slate-100 flex items-center justify-center py-10">
             {/* Main Login Card */}
@@ -50,13 +74,14 @@ const LoginCard = () => {
                 </div>
 
                 {/* Login Form */}
-                <form className="space-y-5">
+                <form onSubmit={handleSubmit(a)} className="space-y-5">
                     {/* Email Input */}
                     <div className="space-y-1.5">
                         <label className="text-slate-800 font-bold text-sm">
                             Email Address
                         </label>
                         <input
+                        {...register("email", { required: true })}
                             type="email"
                             placeholder="Enter your email"
                             className="w-full bg-white border border-slate-200 rounded-2xl px-4 py-3.5 text-slate-700 placeholder-slate-400 text-sm outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-50 transition-all duration-200"
@@ -69,6 +94,7 @@ const LoginCard = () => {
                             Password
                         </label>
                         <input
+                        {...register("password", { required: true })}
                             type="password"
                             placeholder="........"
                             className="w-full bg-white border border-slate-200 rounded-2xl px-4 py-3.5 text-slate-700 placeholder-slate-400 text-base tracking-widest outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-50 transition-all duration-200"
