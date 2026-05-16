@@ -1,6 +1,8 @@
 "use client"
+import { authClient } from '@/lib/auth-client';
 import Link from 'next/link';
 import React from 'react';
+import { useForm } from 'react-hook-form';
 
 const LoginCard = () => {
 
@@ -9,11 +11,9 @@ const LoginCard = () => {
         const a = async(v) => {
             console.log(v)
     
-            const { data, error } = await authClient.signUp.email({
-                name: v.name,
+            const { data, error } = await authClient.signIn.email({
                 email: v.email,
                 password: v.password,
-                image: v.image,
                 callbackURL: "/",
             });
     
@@ -111,7 +111,7 @@ const LoginCard = () => {
                     {/* Sign In Button */}
                     <button
                         type="submit"
-                        className="w-full bg-[#0084ff] hover:bg-blue-600 text-white font-bold py-4 rounded-2xl shadow-lg shadow-blue-500/20 transition-all duration-200 flex items-center justify-center gap-2 group mt-2"
+                        className="w-full bg-linear-to-r from-cyan-500 to-blue-600 hover:bg-blue-600 hover:bg-blue-600 text-white font-bold py-4 rounded-2xl shadow-lg shadow-blue-500/20 transition-all duration-200 flex items-center justify-center gap-2 group mt-2"
                     >
                         <span>Sign In</span>
                         <svg 
