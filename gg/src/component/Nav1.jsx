@@ -28,9 +28,9 @@ const Nav1 = () => {
     ]
 
     return (
-        <div>
+        <div className='flex items-center gap-8'>
             {
-                links.map(v => {
+                links.map(v => (
                     <Link key={v.name} href={v.path} className='text-sm font-semibold'>
                         {
                             p===v.path? <Button size='sm' className={'bg-linear-to-r from-cyan-500 to-blue-600'}>
@@ -39,7 +39,7 @@ const Nav1 = () => {
                             : <button>{v.name}</button>
                         }
                     </Link>
-                })
+                ))
             }
         </div>
     );
