@@ -5,7 +5,7 @@ import { FaPlay, FaStar } from 'react-icons/fa';
 
 const Banner = () => {
     return (
-        <div className='bg-[#f4f7fc] px-6 lg:px-16 rounded-xl py-10'>
+        <div className='bg-[#f4f7fc] px-6 lg:px-16 rounded-xl py-10 w-[80%] mx-auto'>
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-14 items-center'>
 
                 {/* Left Side */}
