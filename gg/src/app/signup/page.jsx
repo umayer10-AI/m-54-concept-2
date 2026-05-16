@@ -1,8 +1,9 @@
+import Link from 'next/link';
 import React from 'react';
 
 const SignUpCard = () => {
     return (
-        <div className="min-h-screen bg-slate-100 flex items-center justify-center p-4">
+        <div className=" bg-slate-100 flex items-center justify-center py-10">
             {/* Main Sign Up Card */}
             <div className="w-full max-w-[440px] bg-white rounded-[40px] shadow-[0_20px_50px_rgba(0,0,0,0.08)] p-8 md:p-10 font-sans">
                 
@@ -17,36 +18,7 @@ const SignUpCard = () => {
                 </div>
 
                 {/* Google Sign Up Button */}
-                <button className="w-full flex items-center justify-center gap-3 border border-slate-200 hover:bg-slate-50 text-slate-700 font-bold text-sm py-3.5 px-4 rounded-xl transition-colors duration-200 mb-6">
-                    <svg className="w-5 h-5" viewBox="0 0 24 24">
-                        <path
-                            fill="#EA4335"
-                            d="M5.266 9.765A7.077 7.077 0 0 1 12 4.909c1.69 0 3.218.6 4.418 1.582L19.91 3C17.782 1.145 15.055 0 12 0 7.27 0 3.198 2.698 1.24 6.65l4.026 3.115Z"
-                        />
-                        <path
-                            fill="#4285F4"
-                            d="M16.04 15.345c-1.077.736-2.423 1.164-4.04 1.164-2.955 0-5.46-1.982-6.355-4.654L1.62 14.97C3.578 18.923 7.65 21.62 12 21.62c3.155 0 6.036-1.118 8.127-3.055l-4.086-3.22Z"
-                        />
-                        <path
-                            fill="#FBBC05"
-                            d="M5.686 11.855a7.042 7.042 0 0 1 0-2.09L1.66 6.65a11.93 11.93 0 0 0 0 10.7l4.027-3.114V11.855Z"
-                        />
-                        <path
-                            fill="#34A853"
-                            d="M23.49 12.275c0-.718-.064-1.409-.182-2.073H12v4.182h6.464a5.53 5.53 0 0 1-2.4 3.636l4.086 3.218c2.39-2.21 3.764-5.464 3.764-8.964Z"
-                        />
-                    </svg>
-                    Sign up with Google
-                </button>
 
-                {/* Divider */}
-                <div className="relative flex py-2 items-center mb-6">
-                    <div className="flex-grow border-t border-slate-100"></div>
-                    <span className="flex-shrink mx-4 text-slate-400 text-xs font-bold uppercase tracking-widest">
-                        Or with Email
-                    </span>
-                    <div className="flex-grow border-t border-slate-100"></div>
-                </div>
 
                 {/* Sign Up Form */}
                 <form className="space-y-5">
@@ -70,6 +42,17 @@ const SignUpCard = () => {
                         <input
                             type="email"
                             placeholder="Enter your email"
+                            className="w-full bg-white border border-slate-200 rounded-2xl px-4 py-3.5 text-slate-700 placeholder-slate-400 text-sm outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-50 transition-all duration-200"
+                        />
+                    </div>
+
+                    <div className="space-y-1.5">
+                        <label className="text-slate-800 font-bold text-sm">
+                            Image URL
+                        </label>
+                        <input
+                            type="email"
+                            placeholder="Enter your URL"
                             className="w-full bg-white border border-slate-200 rounded-2xl px-4 py-3.5 text-slate-700 placeholder-slate-400 text-sm outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-50 transition-all duration-200"
                         />
                     </div>
@@ -107,9 +90,9 @@ const SignUpCard = () => {
                 {/* Footer Link */}
                 <p className="text-center text-sm font-semibold text-slate-500 mt-8">
                     Already have an account?{' '}
-                    <a href="#signin" className="text-blue-600 hover:underline font-bold">
+                    <Link href={"/login"} className="text-blue-600 hover:underline font-bold">
                         Sign In
-                    </a>
+                    </Link>
                 </p>
 
             </div>

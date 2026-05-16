@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 const LoginCard = () => {
@@ -102,9 +103,9 @@ const LoginCard = () => {
                 {/* Footer Link */}
                 <p className="text-center text-sm font-semibold text-slate-500 mt-8">
                     New to CourseHub?{' '}
-                    <a href="#signup" className="text-blue-600 hover:underline font-bold">
+                    <Link href={"/signup"} className="text-blue-600 hover:underline font-bold">
                         Create an account
-                    </a>
+                    </Link>
                 </p>
 
             </div>
