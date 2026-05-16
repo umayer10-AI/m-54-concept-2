@@ -1,3 +1,4 @@
+import Card from '@/component/Card';
 import React from 'react';
 import { PiBookOpen } from 'react-icons/pi';
 
@@ -10,7 +11,7 @@ const page = () => {
             </div>
             <div>
                 <h2 className='text-2xl font-bold flex items-center gap-2'><span className='text-blue-500 text-3xl'><PiBookOpen /></span>All Courses</h2>
-                
+                <Card></Card>
             </div>
         </div>
     );
