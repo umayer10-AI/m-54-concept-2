@@ -10,15 +10,17 @@ const Nav2 = () => {
 
     return (
         <div>
-            <Link href={'/login'} className='text-sm font-semibold'>
-                {
-                    p==='/login' ? <Button size='sm' className={'bg-linear-to-r from-cyan-500 to-blue-600'}>
-                        Login
-                    </Button>
-                    : <button>Login</button>
-                }
-            </Link>
-            <Link href={'/register'}><Button size='sm' className=' bg-blue-500'>Join Free</Button></Link>
+            <div className='flex items-center gap-5'>
+                <Link href={'/login'} className='font-semibold'>
+                    {
+                        p==='/login' ? <Button size='sm' className={'bg-linear-to-r from-cyan-500 to-blue-600'}>
+                            Login
+                        </Button>
+                        : <button>Login</button>
+                    }
+                </Link>
+                <Link href={'/register'}><Button size='sm' className=' bg-blue-500'>Join Free</Button></Link>
+            </div>
         </div>
     );
 };
