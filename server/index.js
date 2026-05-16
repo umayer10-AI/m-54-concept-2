@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const dotenv = require('dotenv')
 const cors = require('cors')
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const port = process.env.PORT || 5000
 dotenv.config()
 
@@ -26,8 +26,17 @@ const run = async () => {
         const db = client.db('concept-2')
         const userCollection = db.collection('myData')
 
-        app.get('/about', async (req,res) => {
+        app.get('/courses', async (req,res) => {
             const result = await userCollection.find().toArray()
+            res.send(result)
+        })
+
+        app.get('/courses/:id', async (req,res) => {
+            const {id} = req.params
+            const query= {
+                _id: new ObjectId(id)
+            }
+            const result = await userCollection.findOne()
             res.send(result)
         })
 
