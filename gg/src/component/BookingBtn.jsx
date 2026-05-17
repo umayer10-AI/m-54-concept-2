@@ -1,11 +1,15 @@
 "use client"
 import { postBooking } from '@/lib/action';
+import { authClient } from '@/lib/auth-client';
 import { betterAuth } from 'better-auth';
 import React from 'react';
 
 const BookingBtn = ({p}) => {
 
+    
     const a = async () => {
+        const token = await authClient.token()
+        const t = token?.data
         
         const b = {
             title: p.title,
@@ -19,7 +23,7 @@ const BookingBtn = ({p}) => {
         }
 
         // console.log(b)
-        await postBooking(b)
+        await postBooking(b,t)
     }
 
     return (

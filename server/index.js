@@ -77,10 +77,15 @@ const run = async () => {
             res.send(result)
         })
 
-        app.post('/booking', async (req,res) => {
+        app.get('/booking', async (req,res) => {
+            const result = await booking.find().toArray()
+            res.json(result)
+        })
+
+        app.post('/booking', verifydata, async (req,res) => {
             const newUser = req.body
             const result = await booking.insertOne(newUser)
-            console.log(newUser)
+            console.log(result)
             res.send(result)
         })
 

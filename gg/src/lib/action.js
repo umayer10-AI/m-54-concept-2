@@ -16,19 +16,18 @@ export const postData = async (v,t) => {
     return data
 }
 
-export const postBooking = async (v) => {
-    // const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/booking`,{
-    //     method: "POST",
-    //     headers: {
-    //         'content-type':'application/json',
-    //         // authorization: `Bearer ${t?.token}`
-    //     },
-    //     body: JSON.stringify(v)
-    // })
-    // const data = await res.json()
-    // // if(data.insertedId){
-    // //     redirect('/dashboard')
-    // // }
-    // return data
-    console.log(v)
+export const postBooking = async (v,t) => {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/booking`,{
+        method: "POST",
+        headers: {
+            'content-type':'application/json',
+            authorization: `Bearer ${t?.token}`
+        },
+        body: JSON.stringify(v)
+    })
+    const data = await res.json()
+    if(data.insertedId){
+        redirect('/dashboard')
+    }
+    return data
 }
