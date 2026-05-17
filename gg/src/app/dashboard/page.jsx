@@ -7,13 +7,8 @@ import { useSession } from '@/lib/auth-client';
 const EnrolledCourses = () => {
 
     const {data} = useSession()
-    console.log(data)
-
-  const user = {
-    name: "Umayer",
-    email: "daviddoy20@gmail.com",
-    avatar: "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=150&auto=format&fit=crop&q=80" // আপনার ইমেজের অ্যাপল ওয়াচ প্রোফাইল পিকচারের একটি ডামি লিঙ্ক
-  };
+    const user = data?.user
+    console.log(user)
 
   return (
     <div className="min-h-screen bg-slate-50/50 p-6 md:p-12 font-sans">
@@ -27,8 +22,8 @@ const EnrolledCourses = () => {
             {/* Avatar container with square-ish smooth rounded corners */}
             <div className="relative h-24 w-24 overflow-hidden rounded-[28px] bg-slate-100">
               <Image width={100} height={100}
-                src={user.avatar}
-                alt={user.name}
+                src={user?.image}
+                alt={user?.name}
                 className="h-full w-full object-cover rounded-full"
               />
             </div>
@@ -36,10 +31,10 @@ const EnrolledCourses = () => {
             {/* User Info */}
             <div className="space-y-1">
               <h3 className="text-xl font-bold text-slate-900 tracking-tight">
-                {user.name}
+                {user?.name}
               </h3>
               <p className="text-[13px] font-medium text-slate-400 break-all">
-                {user.email}
+                {user?.email}
               </p>
             </div>
           </div>
