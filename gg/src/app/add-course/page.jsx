@@ -3,15 +3,21 @@ import React from 'react';
 import { PlusSquare, ListPlus } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { postData } from '@/lib/action';
+import { authClient } from '@/lib/auth-client';
 
 const CreateCourseForm = () => {
 
     const {register,handleSubmit,formState: { errors },} = useForm()
 
     const a = async(v) => {
-                console.log(v)
+
+        const token = await authClient.token()
+        const t = token?.data
+        // console.log(t)
+
+                // console.log(v)
         
-                await postData(v)
+                await postData(v,t)
         
             }
 
