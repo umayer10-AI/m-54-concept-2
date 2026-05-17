@@ -2,12 +2,18 @@ import React from 'react';
 import { Clock, BookOpen, User, Tag, ArrowLeft, CheckCircle, Globe, ShieldCheck } from 'lucide-react';
 import { userIdData } from '@/lib/data';
 import Link from 'next/link';
+import { auth } from '@/lib/auth';
+import { headers } from 'next/headers';
 
 const CourseDetails = async ({params}) => {
-    const {id} = await params
-    console.log(id)
 
-    const course = await userIdData(id)
+    const {id} = await params
+    const {token} = await auth.api.getToken({
+        headers: await headers()
+    })
+    // console.log(token)
+
+    const course = await userIdData(id,token)
 
     const learningOutcomes = [
         "Build powerful, production-ready full stack applications using the MERN stack.",

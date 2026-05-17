@@ -3,8 +3,12 @@ export const userData = async() => {
     return res.json()
 }
 
-export const userIdData = async(id) => {
-    const res = await fetch(`${process.env.MY_URL}/courses/${id}`)
+export const userIdData = async(id,token) => {
+    const res = await fetch(`${process.env.MY_URL}/courses/${id}`,{
+        headers: {
+            authorization: `Bearer ${token}`
+        }
+    })
     return res.json()
 }
 
