@@ -70,7 +70,7 @@ const run = async () => {
             res.send(result)
         })
 
-        app.post('/courses', async (req,res) => {
+        app.post('/courses',verifydata, async (req,res) => {
             const newUser = req.body
             const result = await userCollection.insertOne(newUser)
             res.send(result)
