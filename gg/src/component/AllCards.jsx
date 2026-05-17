@@ -10,7 +10,6 @@ const AllCards = ({p}) => {
     return (
         <div>
             <div className="max-w-90 h-full shadow-sm hover:shadow-2xl group hover:shadow-blue-500 hover:-translate-y-2  duration-300 bg-white rounded-[32px] border border-gray-200 overflow-hidden p-4 font-sans">
-            {/* Top Image Section */}
             <div className="relative h-60 w-full rounded-[24px] overflow-hidden">
                 <Image width={100} height={100}
                     src={p.thumbnail} 
@@ -18,7 +17,6 @@ const AllCards = ({p}) => {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="w-full h-full object-cover group-hover:scale-110 duration-500"
                 />
-                {/* Category Badge */}
                 <span className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-slate-800 text-xs font-semibold px-3 py-1.5 rounded-full shadow-sm">
                     {p.category}
                 </span>
