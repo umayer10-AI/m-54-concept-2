@@ -1,3 +1,5 @@
+import { redirect } from "next/navigation"
+
 export const postData = async (v) => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/courses`,{
         method: "POST",
@@ -7,6 +9,8 @@ export const postData = async (v) => {
         body: JSON.stringify(v)
     })
     const data = await res.json()
-    // console.log(data)
+    if(data.insertedId){
+        redirect('/courses')
+    }
     return data
 }
