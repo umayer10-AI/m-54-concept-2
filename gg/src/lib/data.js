@@ -15,6 +15,10 @@ export const userIdData = async(id,token) => {
 export const featureData = async () => {
     const res = await fetch(`${process.env.MY_URL}/feature`)
 
-    
+
+    return res.json()
+}
+export const getbookingData = async () => {
+    const res = await fetch(`http://localhost:5000/booking`)
     return res.json()
 }

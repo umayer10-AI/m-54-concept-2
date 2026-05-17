@@ -85,7 +85,6 @@ const run = async () => {
         app.post('/booking', verifydata, async (req,res) => {
             const newUser = req.body
             const result = await booking.insertOne(newUser)
-            console.log(result)
             res.send(result)
         })
 

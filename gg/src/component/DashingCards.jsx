@@ -1,7 +1,13 @@
 import Link from 'next/link';
 import React from 'react';
+import CourseRowCard from './DashingCard2';
+import { getbookingData } from '@/lib/data';
 
-const DashingCards = () => {
+const DashingCards = async () => {
+
+    // const data = await getbookingData()
+    // console.log(data)
+
     return (
         <div>
             <div className="w-full flex flex-col items-center justify-center rounded-[32px] bg-white border border-slate-100 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.04)] p-8">
@@ -18,6 +24,11 @@ const DashingCards = () => {
                   Browse Courses
                 </Link>
               </div>
+            </div>
+            <div>
+                {
+                    // data.map(v => <CourseRowCard key={v._id} p={v}></CourseRowCard>)
+                }
             </div>
         </div>
     );
