@@ -1,16 +1,18 @@
 import React from 'react';
 import { PlusSquare, ListPlus } from 'lucide-react';
+import { useForm } from 'react-hook-form';
 
 const CreateCourseForm = () => {
 
+    const {register,handleSubmit,formState: { errors },} = useForm()
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-slate-50 p-4 font-sans selection:bg-blue-500 selection:text-white">
+    <div className="flex items-center justify-center bg-slate-50 p-4 font-sans selection:bg-blue-500 selection:text-white">
       {/* Main Card */}
-      <div className="w-full max-w-[720px] rounded-[40px] bg-white p-8 md:p-14 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.08)] border border-slate-100">
+      <div className="w-full max-w-[720px] rounded-[40px] bg-white p-8 md:py-10 md:px-14 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.08)] border border-slate-100">
         
         {/* Header Icon */}
-        <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-blue-50">
+        <div className="mx-auto mb-2 flex h-14 w-14 items-center justify-center rounded-xl bg-blue-50">
           <PlusSquare className="h-7 w-7 text-blue-600" strokeWidth={1.8} />
         </div>
 
@@ -23,7 +25,7 @@ const CreateCourseForm = () => {
         </p>
 
         {/* Form */}
-        <form className="mt-10 space-y-6">
+        <form className="mt-10 space-y-3">
           
           {/* Course Title */}
           <div className="flex flex-col gap-2">
@@ -43,7 +45,7 @@ const CreateCourseForm = () => {
               rows={4}
               placeholder="What will students learn in this course?"
 
-              className="w-full resize-none rounded-2xl border border-slate-200/80 bg-white px-5 py-4 text-[14px] text-slate-800 placeholder-slate-400 outline-none transition-all duration-250 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+              className="w-full resize-none rounded-2xl border border-slate-200/80 bg-white px-5 text-[14px] text-slate-800 placeholder-slate-400 outline-none transition-all duration-250 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
             />
           </div>
 
@@ -111,7 +113,7 @@ const CreateCourseForm = () => {
           </div>
 
           {/* Actions Button Group */}
-          <div className="pt-4 flex flex-col-reverse gap-4 sm:flex-row sm:items-center sm:justify-end">
+          <div className="pt-2 flex flex-col-reverse gap-4 sm:flex-row sm:items-center sm:justify-end">
             <button
               type="button"
 
