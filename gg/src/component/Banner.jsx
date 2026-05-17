@@ -6,13 +6,12 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-// import Swiper from 'swiper';
 import { Swiper,SwiperSlide } from 'swiper/react';
 import { Pagination,Navigation } from 'swiper/modules';
 
 const Banner = () => {
     return (
-        <Swiper pagination={true} modules={[Pagination,Navigation]} className="mySwiper">
+        <Swiper navigation={true} pagination={true} modules={[Pagination,Navigation]} className="mySwiper">
 
         <SwiperSlide>
             <div className='bg-[#f4f7fc] px-6 lg:px-16 rounded-xl py-10 w-[80%] mx-auto'>
