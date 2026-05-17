@@ -19,6 +19,12 @@ const client = new MongoClient(uri, {
     }
 });
 
+const verifydata = async (req,res,next) => {
+    const header = req.headers.authorization
+    console.log(header)
+    next()
+}
+
 const run = async () => {
     try {
         await client.connect();
@@ -36,7 +42,7 @@ const run = async () => {
             res.send(result)
         })
 
-        app.get('/courses/:id', async (req,res) => {
+        app.get('/courses/:id',verifydata, async (req,res) => {
             const {id} = req.params
             const query= {
                 _id: new ObjectId(id)
@@ -48,7 +54,6 @@ const run = async () => {
         app.post('/courses', async (req,res) => {
             const newUser = req.body
             const result = await userCollection.insertOne(newUser)
-            console.log(result)
             res.send(result)
         })
 
