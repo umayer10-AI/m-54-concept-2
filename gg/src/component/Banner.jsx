@@ -4,14 +4,15 @@ import React from 'react';
 import { FaPlay, FaStar } from 'react-icons/fa';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 // import Swiper from 'swiper';
 import { Swiper,SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
+import { Pagination,Navigation } from 'swiper/modules';
 
 const Banner = () => {
     return (
-        <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
+        <Swiper pagination={true} modules={[Pagination,Navigation]} className="mySwiper">
 
         <SwiperSlide>
             <div className='bg-[#f4f7fc] px-6 lg:px-16 rounded-xl py-10 w-[80%] mx-auto'>
