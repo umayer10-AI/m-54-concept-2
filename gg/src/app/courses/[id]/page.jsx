@@ -4,6 +4,7 @@ import { userIdData } from '@/lib/data';
 import Link from 'next/link';
 import { auth } from '@/lib/auth';
 import { headers } from 'next/headers';
+import BookingBtn from '@/component/BookingBtn';
 
 const CourseDetails = async ({params}) => {
 
@@ -141,9 +142,7 @@ const CourseDetails = async ({params}) => {
 
                     {/* Action Buttons */}
                     <div className="space-y-3">
-                        <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl shadow-lg shadow-blue-600/10 transition-colors duration-200 text-base">
-                            Enroll in Course
-                        </button>
+                        <BookingBtn p={course}></BookingBtn>
                         <button className="w-full border border-slate-200 hover:bg-slate-50 text-slate-800 font-bold py-4 rounded-xl transition-colors duration-200 text-base">
                             Add to Cart
                         </button>

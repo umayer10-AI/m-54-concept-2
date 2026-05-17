@@ -50,6 +50,7 @@ const run = async () => {
 
         const db = client.db('concept-2')
         const userCollection = db.collection('myData')
+        const booking = db.collection('bookingData')
 
         app.get('/courses', async (req,res) => {
             const result = await userCollection.find().toArray()
@@ -73,6 +74,13 @@ const run = async () => {
         app.post('/courses',verifydata, async (req,res) => {
             const newUser = req.body
             const result = await userCollection.insertOne(newUser)
+            res.send(result)
+        })
+
+        app.post('/booking', async (req,res) => {
+            const newUser = req.body
+            const result = await booking.insertOne(newUser)
+            console.log(newUser)
             res.send(result)
         })
 
