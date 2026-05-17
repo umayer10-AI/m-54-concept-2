@@ -14,5 +14,7 @@ export const userIdData = async(id,token) => {
 
 export const featureData = async () => {
     const res = await fetch(`${process.env.MY_URL}/feature`)
+
+    
     return res.json()
 }

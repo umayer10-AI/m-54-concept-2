@@ -2,10 +2,18 @@
 import Image from 'next/image';
 import React from 'react';
 import { FaPlay, FaStar } from 'react-icons/fa';
+import 'swiper/css';
+import 'swiper/css/pagination';
+
+// import Swiper from 'swiper';
+import { Swiper,SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper/modules';
 
 const Banner = () => {
     return (
-        <div className='bg-[#f4f7fc] px-6 lg:px-16 rounded-xl py-10 w-[80%] mx-auto'>
+        <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
+        <SwiperSlide>
+            <div className='bg-[#f4f7fc] px-6 lg:px-16 rounded-xl py-10 w-[80%] mx-auto'>
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-14 items-center'>
 
                 {/* Left Side */}
@@ -130,17 +138,13 @@ const Banner = () => {
 
                     </div>
 
-                    {/* Dots */}
-                    <div className='flex justify-center gap-3 mt-8'>
-                        <div className='w-3 h-3 rounded-full bg-blue-600'></div>
-                        <div className='w-3 h-3 rounded-full bg-gray-300'></div>
-                        <div className='w-3 h-3 rounded-full bg-gray-300'></div>
-                    </div>
-
                 </div>
 
             </div>
         </div>
+        </SwiperSlide>
+
+      </Swiper>
     );
 };
 
