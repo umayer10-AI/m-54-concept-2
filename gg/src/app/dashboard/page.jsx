@@ -22,8 +22,8 @@ const EnrolledCourses = () => {
             {/* Avatar container with square-ish smooth rounded corners */}
             <div className="relative h-24 w-24 overflow-hidden rounded-[28px] bg-slate-100">
               <Image width={100} height={100}
-                src={user?.image}
-                alt={user?.name}
+                src={user?.image ? user.image : "/avatar.png"}
+                alt={user?.name ? user.name : "User"}
                 className="h-full w-full object-cover rounded-full"
               />
             </div>
