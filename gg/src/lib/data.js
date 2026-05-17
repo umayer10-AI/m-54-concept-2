@@ -1,5 +1,6 @@
-export const userData = async() => {
-    const res = await fetch(`${process.env.MY_URL}/courses`)
+export const userData = async(search) => {
+    const res = await fetch(`${process.env.MY_URL}/courses?search=${search.search}`)
+    console.log(search)
     return res.json()
 }
 

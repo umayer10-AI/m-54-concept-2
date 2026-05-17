@@ -10,7 +10,7 @@ const SearchBar = () => {
     const router = useRouter()
 
     const a = async () => {
-        router.push(`/course?search=${s}`)
+        router.push(`/courses?search=${s}`)
     }
 
     return (

@@ -2,9 +2,9 @@ import React from 'react';
 import AllCards from './AllCards';
 import { userData } from '@/lib/data';
 
-const Card = async () => {
+const Card = async ({search}) => {
 
-    const data = await userData()
+    const data = await userData({search})
 
     return (
         <div className='grid grid-cols-4 gap-5'>

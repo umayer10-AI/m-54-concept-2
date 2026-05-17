@@ -54,6 +54,7 @@ const run = async () => {
 
         app.get('/courses', async (req,res) => {
             const {search} = req.query
+            console.log(search)
             let cursor;
             if(!search){
                 cursor = await userCollection.find()

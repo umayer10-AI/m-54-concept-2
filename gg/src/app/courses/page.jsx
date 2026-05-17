@@ -3,7 +3,9 @@ import SearchBar from '@/component/SearchBar';
 import React from 'react';
 import { PiBookOpen } from 'react-icons/pi';
 
-const page = () => {
+const page = async ({searchParams}) => {
+    const {search} = await searchParams
+    console.log(search)
     return (
         <div>
             <div className='text-center space-y-5 my-10'>
@@ -17,7 +19,7 @@ const page = () => {
                 <div className=' pt-10 pb-20 w-[80%] mx-auto'>
                     <h2 className='text-2xl font-bold flex items-center gap-2 mb-10'><span className='text-blue-500 text-3xl'><PiBookOpen /></span>All Courses</h2>
                     
-                    <Card></Card>
+                    <Card search={search}></Card>
                 </div>
             </div>
         </div>
