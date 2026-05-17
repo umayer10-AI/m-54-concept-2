@@ -2,6 +2,7 @@
 import React from 'react';
 import { PlusSquare, ListPlus } from 'lucide-react';
 import { useForm } from 'react-hook-form';
+import { postData } from '@/lib/action';
 
 const CreateCourseForm = () => {
 
@@ -10,18 +11,7 @@ const CreateCourseForm = () => {
     const a = async(v) => {
                 console.log(v)
         
-                // const { data, error } = await authClient.signIn.email({
-                //     email: v.email,
-                //     password: v.password,
-                //     callbackURL: "/",
-                // });
-        
-                // if(data){
-                //     alert("Data Successfully")
-                // }
-                // if(error){
-                //     alert(error.message)
-                // }
+                await postData(v)
         
             }
 
@@ -76,7 +66,7 @@ const CreateCourseForm = () => {
               <input
                 type="url"
                 placeholder="https://images.unsplash.com/..."
-                {...register("url", { required: true })}
+                {...register("thumbnail", { required: true })}
                 className="w-full rounded-2xl border border-slate-200/80 bg-white px-5 py-4 text-[14px] text-slate-800 placeholder-slate-400 outline-none transition-all duration-250 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
               />
             </div>
