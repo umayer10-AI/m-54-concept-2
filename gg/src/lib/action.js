@@ -1,5 +1,5 @@
 export const postData = async (v) => {
-    const res = await fetch(`${process.env.SERVER_URL}/courses`,{
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/courses`,{
         method: "POST",
         headers: {
             'content-type':'application/json'
