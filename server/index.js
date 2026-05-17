@@ -53,7 +53,30 @@ const run = async () => {
         const booking = db.collection('bookingData')
 
         app.get('/courses', async (req,res) => {
-            const result = await userCollection.find().toArray()
+            const {search} = req.query
+            let cursor;
+            if(!search){
+                cursor = await userCollection.find()
+            }
+            else{
+                cursor = await userCollection.find({
+                    $or:[
+                        {
+                            title: {
+                                $regex: search,
+                                $options: 'i'
+                            }
+                        },
+                        {
+                            instructor: {
+                                $regex: search,
+                                $options: 'i'
+                            }
+                        },
+                    ]
+                })
+            }
+            const result = await cursor.toArray()
             res.send(result)
         })
 
