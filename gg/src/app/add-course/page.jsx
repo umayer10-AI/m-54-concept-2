@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 import { PlusSquare, ListPlus } from 'lucide-react';
 import { useForm } from 'react-hook-form';
@@ -5,6 +6,24 @@ import { useForm } from 'react-hook-form';
 const CreateCourseForm = () => {
 
     const {register,handleSubmit,formState: { errors },} = useForm()
+
+    const a = async(v) => {
+                console.log(v)
+        
+                // const { data, error } = await authClient.signIn.email({
+                //     email: v.email,
+                //     password: v.password,
+                //     callbackURL: "/",
+                // });
+        
+                // if(data){
+                //     alert("Data Successfully")
+                // }
+                // if(error){
+                //     alert(error.message)
+                // }
+        
+            }
 
   return (
     <div className="flex items-center justify-center bg-slate-50 p-4 font-sans selection:bg-blue-500 selection:text-white">
@@ -25,7 +44,7 @@ const CreateCourseForm = () => {
         </p>
 
         {/* Form */}
-        <form className="mt-10 space-y-3">
+        <form onSubmit={handleSubmit(a)} className="mt-10 space-y-3">
           
           {/* Course Title */}
           <div className="flex flex-col gap-2">
@@ -33,7 +52,7 @@ const CreateCourseForm = () => {
             <input
               type="text"
               placeholder="e.g. Next.js 15 Masterclass"
-
+                {...register("title", { required: true })}
               className="w-full rounded-2xl border border-slate-200/80 bg-white px-5 py-4 text-[14px] text-slate-800 placeholder-slate-400 outline-none transition-all duration-250 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
             />
           </div>
@@ -44,7 +63,7 @@ const CreateCourseForm = () => {
             <textarea
               rows={4}
               placeholder="What will students learn in this course?"
-
+                {...register("description", { required: true })}
               className="w-full resize-none rounded-2xl border border-slate-200/80 bg-white px-5 text-[14px] text-slate-800 placeholder-slate-400 outline-none transition-all duration-250 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
             />
           </div>
@@ -57,7 +76,7 @@ const CreateCourseForm = () => {
               <input
                 type="url"
                 placeholder="https://images.unsplash.com/..."
-
+                {...register("url", { required: true })}
                 className="w-full rounded-2xl border border-slate-200/80 bg-white px-5 py-4 text-[14px] text-slate-800 placeholder-slate-400 outline-none transition-all duration-250 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
               />
             </div>
@@ -69,7 +88,7 @@ const CreateCourseForm = () => {
                 <ListPlus className="absolute left-5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
                 <select
                   defaultValue=""
-
+                    {...register("category", { required: true })}
                   className="w-full appearance-none rounded-2xl border border-slate-200/80 bg-white pl-12 pr-12 py-4 text-[14px] text-slate-600 outline-none transition-all duration-250 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
                 >
                   <option value="" disabled hidden>Select a category</option>
@@ -97,6 +116,7 @@ const CreateCourseForm = () => {
                 type="number"
                 step="0.01"
                 placeholder="0.00"
+                {...register("price", { required: true })}
                 className="w-full rounded-2xl border border-slate-200/80 bg-white px-5 py-4 text-[14px] text-slate-800 placeholder-slate-400 outline-none transition-all duration-250 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
               />
             </div>
@@ -107,6 +127,7 @@ const CreateCourseForm = () => {
               <input
                 type="text"
                 placeholder="e.g. 12h 30m"
+                {...register("duration", { required: true })}
                 className="w-full rounded-2xl border border-slate-200/80 bg-white px-5 py-4 text-[14px] text-slate-800 placeholder-slate-400 outline-none transition-all duration-250 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
               />
             </div>
