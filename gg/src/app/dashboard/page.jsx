@@ -8,7 +8,6 @@ const EnrolledCourses = () => {
 
     const {data} = useSession()
     const user = data?.user
-    console.log(user)
 
   return (
     <div className="min-h-screen bg-slate-50/50 p-6 md:p-12 font-sans">
